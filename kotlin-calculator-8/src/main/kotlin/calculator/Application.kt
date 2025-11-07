@@ -7,25 +7,21 @@ fun main() {
     println("숫자 입력")
     val rawData = Console.readLine()
 
-    val hasCustomDelimiter = hasCustomDelimiter(rawData)
-    println("결과")
+    val delimiterStrategies = listOf(
+        DefaultDelimiterStrategy(),
+        CustomDelimiterStrategy()
+    )
 
-    if (hasCustomDelimiter) {
-        val customDelimiter = CustomDelimiter(rawData)
-        val numList = customDelimiter.splitByDelimiter()
-        println(Calculator.sumStringList(numList))
+    val delimiterStrategy = delimiterStrategies.find { delimiterStrategy -> delimiterStrategy.isSupport(rawData) }
+
+    if (delimiterStrategy == null) {
+        throw IllegalArgumentException("올바른 값을 입력해주세요")
     }
-    if (!hasCustomDelimiter) {
-        val defaultDelimiter = DefaultDelimiter(rawData)
-        val numList = defaultDelimiter.splitByDelimiter()
-        println(Calculator.sumStringList(numList))
-    }
+
+    val calcArea = delimiterStrategy.getCalcArea(rawData)
+    val result = Calculator.sumStringList(calcArea)
+
+    println(result)
 
     Console.close()
-}
-
-// 커스텀 구분자 있는지 확인
-fun hasCustomDelimiter(input: String): Boolean {
-    val regex = "^//.\\\\n.*".toRegex()
-    return input.matches(regex)
 }
