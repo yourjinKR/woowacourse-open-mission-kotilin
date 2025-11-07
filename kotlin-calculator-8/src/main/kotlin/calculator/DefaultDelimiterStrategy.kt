@@ -11,10 +11,3 @@ class DefaultDelimiterStrategy(): DelimiterStrategy {
         return rawData.split("[${Regex.escape(defaultDelimiter)}]".toRegex())
     }
 }
-
-fun main() {
-    val input = "1,2,3,4,5"
-    val del = DefaultDelimiterStrategy()
-
-    println(del.isSupport(input))
-}
