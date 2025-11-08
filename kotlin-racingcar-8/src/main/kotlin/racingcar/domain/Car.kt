@@ -10,11 +10,13 @@ class Car(name: String) {
             return Car(car.name)
         }
     }
-
-    init { validateName(name) }
-
-    val name: String = name
+    val name: String
     var distance: Int = 0
+
+    init {
+        validateName(name)
+        this.name = name
+    }
 
     private fun validateName(name: String) {
         require(name.isNotBlank()) { ErrorMessage.CAR_NAME_EMPTY.message }
