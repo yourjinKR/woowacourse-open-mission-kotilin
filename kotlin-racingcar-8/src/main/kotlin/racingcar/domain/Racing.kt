@@ -15,12 +15,12 @@ class Racing private constructor(private val cars: List<Car>, val totalTurn: Int
 
         private fun validateCars(cars: List<Car>) {
             if (cars.isEmpty())
-                throw IllegalArgumentException(ErrorMessage.RACING_CARS_EMPTY.message)
+                throw IllegalArgumentException(ErrorMessage.RACING_CARS_EMPTY.msg)
         }
 
         private fun validateTotalTurn(totalTurn: Int) {
             if (totalTurn < TURN_MINIMUM)
-                throw IllegalArgumentException(ErrorMessage.RACING_TURN_INVALID.message)
+                throw IllegalArgumentException(ErrorMessage.RACING_TURN_INVALID.msg)
         }
     }
 
