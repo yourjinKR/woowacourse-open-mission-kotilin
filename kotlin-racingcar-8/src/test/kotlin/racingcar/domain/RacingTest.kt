@@ -55,8 +55,8 @@ class RacingTest {
     @DisplayName("객체 프로퍼티와 복사본 주소값이 달라야 함")
     fun copySnapShotTest() {
         val racing = setRacing()
-        val snapShot1 = racing.getRacingCarShot()
-        val snapshot2 = racing.getRacingCarShot()
+        val snapShot1 = racing.getCars()
+        val snapshot2 = racing.getCars()
 
         assertThat(snapShot1 != snapshot2).isTrue
     }
@@ -66,7 +66,7 @@ class RacingTest {
     fun carMoveTest() {
         val racing = setRacing()
         racing.processTurn(NumPickerTest())
-        val racingCarShot = racing.getRacingCarShot()
+        val racingCarShot = racing.getCars()
         val car = racingCarShot[0]
 
         assertThat(car.distance).isEqualTo(1)
@@ -77,7 +77,7 @@ class RacingTest {
     fun carsMoveTest() {
         val racing = setRacing()
         racing.processTurn(NumPickerTest())
-        val racingCarShot = racing.getRacingCarShot()
+        val racingCarShot = racing.getCars()
         val car1 = racingCarShot[0]
         val car2 = racingCarShot[1]
         val check = car1.distance == car2.distance

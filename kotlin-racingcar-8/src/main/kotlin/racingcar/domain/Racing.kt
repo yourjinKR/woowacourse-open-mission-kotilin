@@ -32,7 +32,7 @@ class Racing private constructor(private val cars: List<Car>, val totalTurn: Int
         nowTurn++
     }
 
-    fun getRacingCarShot(): List<Car> {
+    fun getCars(): List<Car> {
         return cars.map { car -> Car.copyOf(car) }
     }
 }

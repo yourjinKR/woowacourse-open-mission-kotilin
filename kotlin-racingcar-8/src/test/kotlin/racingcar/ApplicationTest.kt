@@ -34,4 +34,20 @@ class ApplicationTest : NsTest() {
         private const val MOVING_FORWARD: Int = 4
         private const val STOP: Int = 3
     }
+
+
+    @Test
+    fun `반복문 테스트`() {
+        val arr = arrayOf(1..5)
+        for (i in arr) {
+            println(i)
+        }
+
+        val result = arr.map { i -> process() }
+        println(result)
+    }
+
+    fun process(): Int {
+        return 1
+    }
 }
