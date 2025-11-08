@@ -19,7 +19,7 @@ class InputView {
         try {
             return input.toInt()
         } catch (e: NumberFormatException) {
-            throw IllegalArgumentException(errorMessage.msg)
+            throw IllegalArgumentException(errorMessage.message)
         }
     }
 
@@ -30,7 +30,7 @@ class InputView {
             validateTokens(tokens)
             return tokens
         } catch (e: IllegalArgumentException) {
-            throw IllegalArgumentException(errorMessage.msg)
+            throw IllegalArgumentException(errorMessage.message)
         }
     }
 

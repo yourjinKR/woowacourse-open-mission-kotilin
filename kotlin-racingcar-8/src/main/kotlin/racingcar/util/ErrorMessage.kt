@@ -3,7 +3,7 @@ package racingcar.util
 import racingcar.domain.Car
 import racingcar.domain.Racing
 
-enum class ErrorMessage(private val message: String) {
+enum class ErrorMessage(private val rawMessage: String) {
     INPUT_NAME_LIST("자동차의 이름은 쉼표(,)로 구분하여 입력하시오"),
     INPUT_TRY_TURN("시도 횟수는 최소 ${Racing.TURN_MINIMUM}이상 입력하시오"),
 
@@ -15,6 +15,6 @@ enum class ErrorMessage(private val message: String) {
 
     private val PREFIX = "[ERROR]"
 
-    val msg: String
-        get() = "$PREFIX $message"
+    val message: String
+        get() = "$PREFIX $rawMessage"
 }
