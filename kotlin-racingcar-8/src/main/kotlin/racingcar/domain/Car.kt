@@ -2,16 +2,17 @@ package racingcar.domain
 
 import racingcar.util.ErrorMessage
 
-class Car(name: String) {
+class Car(name: String, distance: Int = 0) {
     companion object {
         const val NAME_MAX_LENGTH = 5
 
         fun copyOf(car: Car): Car {
-            return Car(car.name)
+            return Car(car.name, car.distance)
         }
     }
     val name: String
-    var distance: Int = 0
+    var distance: Int = distance
+        private set
 
     init {
         validateName(name)

@@ -31,4 +31,21 @@ class CarTest {
     fun blankCarNameTest() {
         assertThrows<IllegalArgumentException> { Car("") }
     }
+
+    // 숫자 뽑기 구현
+    inner class NumPickerTest(): NumPicker {
+        override fun pick(): Int {
+            return 5;
+        }
+    }
+
+    @Test
+    @DisplayName("차 움직임 테스트")
+    fun moveCarTest() {
+        val car = Car("유어진")
+        val picker = NumPickerTest()
+        car.goForwardByPicker(picker)
+        assertThat(car.distance)
+            .isEqualTo(1)
+    }
 }

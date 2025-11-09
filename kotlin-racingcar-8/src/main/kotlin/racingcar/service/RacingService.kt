@@ -1,6 +1,5 @@
 package racingcar.service
 
-import racingcar.controller.dto.CarSnapShot
 import racingcar.controller.dto.RacingRequest
 import racingcar.controller.dto.RacingResponse
 import racingcar.controller.dto.RacingSnapShot
@@ -18,8 +17,6 @@ class RacingService(val numPicker: RandomNumPicker, val mapper: RacingMapper) {
         val totalTurn = request.totalTurn
 
         val racing = Racing.carsTotalTurnOf(cars, totalTurn)
-
-        val iter = arrayOf(racing.nowTurn..racing.totalTurn)
 
         val racingSnapShots = List(totalTurn) { processTurn(racing) }
         val winners = pickWinners(racing)
